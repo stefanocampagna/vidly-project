@@ -1,6 +1,6 @@
 const express = require("express");
-const router = express.Router();
 const Joi = require("joi");
+const router = express.Router();
 
 const genres = [
   { id: 1, name: "Action" },
@@ -67,8 +67,7 @@ const validateGenre = genre => {
       .min(3)
   };
 
-  const { error } = Joi.validate(schema, genre);
-  if (error) return error;
+  return Joi.validate(schema, genre);
 };
 
 module.exports = router;
